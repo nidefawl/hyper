@@ -1,5 +1,5 @@
 declare module 'git-describe' {
-  export function gitDescribe(...args: any[]): void;
+  export function gitDescribe(...args: any[]): Promise<void>;
 }
 
 declare module 'default-shell' {

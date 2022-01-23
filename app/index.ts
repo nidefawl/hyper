@@ -60,6 +60,8 @@ if (isDev) {
     if (!error) {
       app.setVersion(gitInfo.raw);
     }
+  }).catch((err: any) => {
+    console.warn('failed getting git revision\n', err);
   });
 } else {
   console.log('running in prod mode');
