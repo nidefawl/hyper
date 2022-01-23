@@ -60,8 +60,12 @@ if (isDev) {
     if (!error) {
       app.setVersion(gitInfo.raw);
     }
-  }).catch((err: any) => {
-    console.warn('failed getting git revision\n', err);
+  }).catch((err: Error) => {
+    if (err.message.includes('Git executable not found in PATH')) {
+      console.warn('Git not found in path');
+    } else {
+      console.error('Failed getting git revision', err);
+    }
   });
 } else {
   console.log('running in prod mode');
